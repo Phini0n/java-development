@@ -9,12 +9,12 @@ public class MathApp {
         float bobSalary = (float) Math.random() * 100000;
         // Rounding bobSalary value to two decimal places.
         bobSalary = (float) Math.round(bobSalary * 100) / 100;
+
         float garySalary = (float) Math.random() * 100000;
         // Rounding garySalary value to two decimal places.
         garySalary = (float) Math.round(garySalary * 100) / 100;
-        float highestSalary;
 
-        highestSalary = Math.max(bobSalary, garySalary);
+        float highestSalary = Math.max(bobSalary, garySalary);
 
         System.out.println("Gary's Salary is: $" + garySalary + ".");
         System.out.println("Bob's Salary is: $" + bobSalary + ".");
