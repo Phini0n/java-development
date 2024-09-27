@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     // Final Variables
-    final private static double OvertimeHours = 40;
+    private static final double OVERTIME_HOURS = 40;
 
     public static void main(String[] args) {
         // Variables
@@ -25,20 +25,20 @@ public class Main {
         hoursWorked = scanner.nextFloat();
 
         // Calculations
-        boolean hasOvertime = hoursWorked > OvertimeHours;
-        grossPay = calculateHours(payRate, hoursWorked, hasOvertime);
+        boolean hasOvertime = hoursWorked > OVERTIME_HOURS;
+        grossPay = calculateGrossPay(payRate, hoursWorked, hasOvertime);
 
         // Final Input
         System.out.println("Your name is " + name + ". Your gross pay is: $" + String.format("%.2f", grossPay));
         scanner.close();
     }
 
-    private static double calculateHours(double rate, double hours, boolean hasOvertime) {
-        if (hasOvertime) { return (OvertimeHours * rate) + calculateOvertime(rate, hours);  }
+    private static double calculateGrossPay(double rate, double hours, boolean hasOvertime) {
+        if (hasOvertime) { return (OVERTIME_HOURS * rate) + calculateOvertime(rate, hours);  }
         return hours * rate;
     }
 
     private static double calculateOvertime(double rate, double hours) {
-        return (hours - OvertimeHours) * 1.5 * rate;
+        return (hours - OVERTIME_HOURS) * 1.5 * rate;
     }
 }
