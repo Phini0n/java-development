@@ -26,14 +26,14 @@ public class Main {
 
         // Calculations
         boolean hasOvertime = hoursWorked > OVERTIME_HOURS;
-        grossPay = calculateGrossPay(payRate, hoursWorked, hasOvertime);
+        grossPay = calculateHours(payRate, hoursWorked, hasOvertime);
 
         // Final Input
         System.out.println("Your name is " + name + ". Your gross pay is: $" + String.format("%.2f", grossPay));
         scanner.close();
     }
 
-    private static double calculateGrossPay(double rate, double hours, boolean hasOvertime) {
+    private static double calculateHours(double rate, double hours, boolean hasOvertime) {
         if (hasOvertime) { return (OVERTIME_HOURS * rate) + calculateOvertime(rate, hours);  }
         return hours * rate;
     }
