@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class SandwichShop {
     // Static Variables
-    static final double regularPrice = 5.45;
-    static final double largePrice = 8.95;
-    static final double studentDiscount = .10;
-    static final double seniorDiscount = .20;
+    static final double REGULAR_PRICE = 5.45;
+    static final double LARGE_PRICE = 8.95;
+    static final double STUDENT_DISCOUNT = .10;
+    static final double SENIOR_DISCOUNT = .20;
 
     public static void main(String[] args) {
         // Variables
@@ -28,13 +28,13 @@ public class SandwichShop {
         age = scanner.nextInt();
 
         // Large-Small Sandwich Conditional. 1 - Regular Price. * - Large Price
-        totalCost = sandwich == 1 ? regularPrice : largePrice;
+        totalCost = sandwich == 1 ? REGULAR_PRICE : LARGE_PRICE;
 
         // Discount Deduction
         if ( age <= 17) {
-            totalCost -= studentDiscount * totalCost;
+            totalCost -= STUDENT_DISCOUNT * totalCost;
             System.out.println("You got a student discount!");
-        } else if (age >= 65) { totalCost -= seniorDiscount * totalCost;
+        } else if (age >= 65) { totalCost -= SENIOR_DISCOUNT * totalCost;
             System.out.println("You got a senior discount!");
         }
 
