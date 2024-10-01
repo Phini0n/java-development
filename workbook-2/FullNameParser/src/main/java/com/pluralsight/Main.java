@@ -13,7 +13,7 @@ public class Main {
         System.out.print("Please enter your name: ");
         fullName = scanner.nextLine();
 
-        String[] splitName = fullName.split(" ");
+        String[] splitName = fullName.trim().split("\\s");
 
         switch (splitName.length) {
             case 3 :
