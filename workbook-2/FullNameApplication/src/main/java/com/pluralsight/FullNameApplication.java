@@ -9,6 +9,7 @@ public class FullNameApplication {
         String firstName;
         String middleName;
         String lastName;
+        String emptyMiddleName; // To test is middle name is empty
         String suffix;
         Scanner scanner = new Scanner(System.in);
 
@@ -16,10 +17,14 @@ public class FullNameApplication {
         System.out.println("Please enter your name");
         System.out.print("First Name: ");
         firstName = captureName(scanner.nextLine());
+
         System.out.print("Middle name: ");
         middleName = captureName(scanner.nextLine());
+        middleName = !(middleName.isEmpty()) ? middleName.charAt(0) + ". " : middleName ;
+
         System.out.print("Last name: ");
         lastName = captureName(scanner.nextLine());
+
         System.out.print("Suffix: ");
         suffix = captureName(scanner.nextLine());
 
