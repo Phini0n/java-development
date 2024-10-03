@@ -6,6 +6,8 @@ public class CellPhoneApplication {
     public static void main(String[] args) {
         CellPhone phone = new CellPhone();
         CellPhone phone1 = new CellPhone();
+        CellPhone phone2 = new CellPhone(102021, "Moto", "Verizon",
+                "555-555-5555", "Daniel");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Phone 1:");
@@ -17,6 +19,8 @@ public class CellPhoneApplication {
         phone.dial(phone1.getPhoneNumber());
         System.out.println();
         phone1.dial(phone.getPhoneNumber());
+        System.out.println();
+        phone.dial(phone2.getPhoneNumber());
     }
 
     private static void getPhone(CellPhone phone, Scanner scanner) {

@@ -15,6 +15,22 @@ public class CellPhone {
         this.owner = "";
     }
 
+    public CellPhone(long serialNumber, String model, String carrier, String phoneNumber, String owner) {
+        this.serialNumber = serialNumber;
+        this.model = model;
+        this.carrier = carrier;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
+    }
+
+    public void dial(String phoneNumber) {
+        System.out.println(owner + "'s phone is calling " + phoneNumber);
+    }
+
+    public void dial(CellPhone cellPhone) {
+        System.out.println(owner + "'s phone is calling " + cellPhone.getPhoneNumber());
+    }
+
     public long getSerialNumber() { return serialNumber; }
 
     public void setSerialNumber(long serialNumber) { this.serialNumber = serialNumber; }
@@ -34,10 +50,6 @@ public class CellPhone {
     public String getOwner() { return owner; }
 
     public void setOwner(String owner) { this.owner = owner; }
-
-    public void dial(String phoneNumber) {
-        System.out.println(owner + "'s phone is calling " + phoneNumber);
-    }
 
     @Override
     public String toString() {
