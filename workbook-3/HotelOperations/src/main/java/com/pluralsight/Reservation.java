@@ -54,4 +54,8 @@ public class Reservation {
     public void setWeekend(boolean weekend) {
         isWeekend = weekend;
     }
+
+    public BigDecimal getReservationTotal() {
+        
+    }
 }
