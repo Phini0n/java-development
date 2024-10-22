@@ -2,33 +2,37 @@ package com.pluralsight;
 
 public class Main {
     public static void main(String[] args) {
-        // Test Employee class
-        Employee employee = new Employee(1, "John Doe", "IT", 25.00, 45.00);
-        System.out.println("Employee ID: " + employee.getEmployeeId());
-        System.out.println("Employee Name: " + employee.getName());
-        System.out.println("Employee Department: " + employee.getDepartment());
-        System.out.println("Employee Pay Rate: " + employee.getPayRate());
-        System.out.println("Employee Hours Worked: " + employee.getHoursWorked());
-        System.out.println("Employee Total Pay: " + employee.getTotalPay());
-        System.out.println("Employee Regular Hours: " + employee.getRegularHours());
-        System.out.println("Employee Overtime Hours: " + employee.getOvertimeHours());
-        System.out.println("=======================================================================");
+        // Create a new room with two beds and a price of $100 per night
+        Room room = new Room(2, 100.00);
 
-        // Test Reservation class
-        Reservation reservation = new Reservation("king", 3, true);
-        System.out.println("Room Type: " + reservation.getRoomType());
-        System.out.println("Price per Night: " + reservation.getPrice());
-        System.out.println("Number of Nights: " + reservation.getNumberOfNights());
-        System.out.println("Is Weekend: " + reservation.isWeekend());
-        System.out.println("Reservation Total: " + reservation.getReservationTotal());
-        System.out.println("=======================================================================");
+        // Check in a guest and mark the room as dirty
+        room.checkIn();
+        System.out.println("Room is occupied: " + room.isOccupied());
+        System.out.println("Room is dirty: " + room.isDirty());
 
-        // Test Room class
-        Room room = new Room(2, 99.99);
-        System.out.println("Number of Beds: " + room.getNumberOfBeds());
-        System.out.println("Price: " + room.getPrice());
-        System.out.println("Is Occupied: " + room.isOccupied());
-        System.out.println("Is Dirty: " + room.isDirty());
-        System.out.println("Is Available: " + room.isAvailable());
+        // Guest checks out and room is cleaned
+        room.checkout();
+        System.out.println("Room is occupied: " + room.isOccupied());
+        room.cleanRoom();
+        System.out.println("Room is dirty: " + room.isDirty());
+
+        // Create a new employee and punch in
+        Employee employee = new Employee(1, "John Doe", "Housekeeping", 15.00);
+        employee.punchIn(9.0);
+
+        // Employee works for 8.5 hours and punches out
+        employee.punchOut(17.5);
+        System.out.println("Hours worked: " + employee.getHoursWorked());
+        System.out.println("Total pay: " + employee.getTotalPay());
+        System.out.println("Regular hours: " + employee.getRegularHours());
+        System.out.println("Overtime hours: " + employee.getOvertimeHours());
+
+        // Employee punches time card again
+        employee.punchTimeCard(9.0);
+        employee.punchTimeCard(18.0);
+        System.out.println("Hours worked: " + employee.getHoursWorked());
+        System.out.println("Total pay: " + employee.getTotalPay());
+        System.out.println("Regular hours: " + employee.getRegularHours());
+        System.out.println("Overtime hours: " + employee.getOvertimeHours());
     }
 }
