@@ -13,7 +13,6 @@ public class Hotel {
         this.numberOfRooms = numberOfRooms;
     }
 
-
     public Hotel(String name, int numberOfSuites, int numberOfRooms, int bookedSuites, int bookedRooms) {
         this.name = name;
         this.numberOfSuites = numberOfSuites;
