@@ -10,6 +10,10 @@ public class Employee {
     private double hoursWorked;
     private double startTime;
 
+    public double getStartTime() {
+        return startTime;
+    }
+
     public Employee(int employeeId, String name, String department, double payRate) {
         this.employeeId = employeeId;
         this.name = name;

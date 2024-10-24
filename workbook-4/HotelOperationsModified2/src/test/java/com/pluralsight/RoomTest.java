@@ -22,7 +22,8 @@ class RoomTest {
     }
 
 
-    public void checkIn_should_beUnoccupiedAndDirty() {
+    @Test
+    public void checkIn_should_remainOccupiedAndDirty() {
         // Arrange
         Room rm = new Room(4, 5600);
 
@@ -41,10 +42,27 @@ class RoomTest {
     public void checkout_should_beUnoccupiedAndDirty() {
         // Arrange
         Room rm = new Room(4, 5600);
+        rm.checkIn();
+
+        // Act
+        rm.checkout();
+
+        // Assert
+        boolean actualIsDirty = rm.isDirty();
+        boolean actualIsOccupied = rm.isOccupied();
+        assertTrue(actualIsDirty);
+        assertFalse(actualIsOccupied);
+    }
+
+    @Test
+    public void checkin_should_remainUnoccupiedAndDirty() {
+        // Arrange
+        Room rm = new Room(4, 5600);
+        rm.checkIn();
+        rm.checkout();
 
         // Act
         rm.checkIn();
-        rm.checkout();
 
         // Assert
         boolean actualIsDirty = rm.isDirty();
@@ -57,10 +75,10 @@ class RoomTest {
     public void cleanRoom_shouldBeUnoccupiedAndClean() {
         // Arrange
         Room rm = new Room(4, 5600);
-
-        // Act
         rm.checkIn();
         rm.checkout();
+
+        // Act
         rm.cleanRoom();
 
         // Assert
@@ -74,9 +92,9 @@ class RoomTest {
     public void cleanRoom_shouldBeOccupiedAndDirty() {
         // Arrange
         Room rm = new Room(4, 5600);
+        rm.checkIn();
 
         // Act
-        rm.checkIn();
         rm.cleanRoom();
 
         // Assert
