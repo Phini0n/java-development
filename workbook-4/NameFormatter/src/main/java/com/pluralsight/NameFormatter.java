@@ -10,7 +10,7 @@ public class NameFormatter {
     }
 
     public static String format(String prefix, String firstName, String middleName, String lastName, String suffix) {
-        return prefix + " " + firstName + " " + middleName + " " + lastName + ", " + suffix;
+        return format(prefix + " " + firstName + " " + middleName + " " + lastName + ", " + suffix);
     }
 
     public static String format(String fullName) {

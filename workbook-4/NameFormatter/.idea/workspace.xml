@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a500a42c-69e0-4b31-b4ab-93bc7b8ea2af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/NameFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/pluralsight/NameFormatterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelOperationsModified2/src/main/java/com/pluralsight/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelOperationsModified2/src/main/java/com/pluralsight/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelOperationsModified2/src/test/java/com/pluralsight/EmployeeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelOperationsModified2/src/test/java/com/pluralsight/EmployeeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HotelOperationsModified2/src/test/java/com/pluralsight/RoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HotelOperationsModified2/src/test/java/com/pluralsight/RoomTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="a500a42c-69e0-4b31-b4ab-93bc7b8ea2af" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,12 +33,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.NameFormatterTest.format_shouldOutput.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "<unknown>",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -69,6 +57,43 @@
       <recent name="com.pluralsight" />
     </key>
   </component>
+  <component name="RunManager" selected="JUnit.NameFormatterTest.format_shouldOutput">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.Main" />
+      <module name="NameFormatter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NameFormatterTest.format_shouldOutput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NameFormatter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.pluralsight.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.pluralsight" />
+      <option name="MAIN_CLASS_NAME" value="com.pluralsight.NameFormatterTest" />
+      <option name="METHOD_NAME" value="format_shouldOutput" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.NameFormatterTest.format_shouldOutput" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729778818230</updated>
-      <workItem from="1729778819406" duration="1514000" />
+      <workItem from="1729778819406" duration="2986000" />
     </task>
     <servers />
   </component>
