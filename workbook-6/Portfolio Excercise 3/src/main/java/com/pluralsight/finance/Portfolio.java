@@ -13,7 +13,7 @@ public class Portfolio {
     }
 
     public void add(IValuable asset) {
-
+        this.assets.add(asset);
 
     }
 
@@ -26,26 +26,38 @@ public class Portfolio {
     }
 
     public IValuable getMostValuable() {
-        double highest = 0;
-        IValuable mostValuable = null;
+        if (assets.isEmpty()) {
+            return null;
+        }
+
+        IValuable mostValuableAsset = assets.get(0);
+        double highest = mostValuableAsset.getValue();
+
         for (IValuable valuable : this.assets) {
-            if (highest < valuable.getValue()) {
-                highest = valuable.getValue();
-                mostValuable = valuable;
+            double assetValue = valuable.getValue();
+            if (assetValue > highest) {
+                highest = assetValue;
+                mostValuableAsset = valuable;
             }
         }
-        return mostValuable;
+        return mostValuableAsset;
     }
 
     public IValuable getLeastValuable() {
-        double lowest = 0;
-        IValuable leastValuable = null;
+        if (assets.isEmpty()) {
+            return null;
+        }
+
+        IValuable leastValuableAsset = assets.get(0);
+        double lowest = leastValuableAsset.getValue();
+
         for (IValuable valuable : this.assets) {
-            if (lowest > valuable.getValue()) {
-                lowest = valuable.getValue();
-                leastValuable = valuable;
+            double assetValue = valuable.getValue();
+            if (assetValue < lowest) {
+                lowest = assetValue;
+                leastValuableAsset = valuable;
             }
         }
-        return leastValuable;
+        return leastValuableAsset;
     }
 }
