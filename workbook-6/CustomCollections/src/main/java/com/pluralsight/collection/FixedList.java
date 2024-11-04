@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FixedList<T> {
-    private final int maxSize;
-
     private List<T> items;
+    private final int maxSize;
 
     public FixedList(int maxSize) {
         this.maxSize = maxSize;
@@ -14,11 +13,11 @@ public class FixedList<T> {
     }
 
     public void add(T item) {
-        if (this.items.size() != maxSize) {
+        if (this.items.size() < maxSize) {
             items.add(item);
         }
         else {
-            System.out.println("Maximum size reached.");
+            throw new IllegalStateException("Maximum size exceeded");
         }
     }
 

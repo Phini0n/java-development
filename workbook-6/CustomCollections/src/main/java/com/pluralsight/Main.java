@@ -11,14 +11,14 @@ public class Main {
         numbers.add(22.0);
         numbers.add("Two");
         numbers.add(93);
-        numbers.add("Forty-Three"); // This line should fail.
+        // numbers.add("Forty-Three"); // This line should fail.
 
         System.out.println(numbers.getItems().size());
 
-        FixedList<Object> dates = new FixedList<>(2);
+        FixedList<LocalDate> dates = new FixedList<>(2);
         dates.add(LocalDate.now());
         dates.add(LocalDate.now());
-        dates.add(15);
+        // dates.add(15);
     }
 
 }
