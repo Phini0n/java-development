@@ -1,6 +1,7 @@
 import com.pluralsight.streams.Person;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
@@ -9,7 +10,7 @@ public class Main {
                 new Person("John", "Smith", 28),
                 new Person("Jane", "Doe", 34),
                 new Person("John", "Doe", 45),
-                new Person("Emily", "Davis", 23),
+                new Person("Doe", "Davis", 23),
                 new Person("David", "Brown", 52),
                 new Person("Emily", "Wilson", 19),
                 new Person("Daniel", "Brown", 40),
@@ -21,28 +22,44 @@ public class Main {
         // Input
         System.out.print("Enter a name to search: ");
         String searchName = scanner.nextLine().trim();
+        System.out.println();
+        scanner.close();
 
         // Filtering
-        List<Person> filteredPeople = new ArrayList<>();
-        for (Person person : people) {
-            if (person.getFirstName().equals(searchName) || person.getLastName().equals(searchName)) {
-                filteredPeople.add(person);
-            }
-        }
+        System.out.println("People with matching name: ");
 
-        Comparator<Person> byAge = Comparator.comparingInt(Person::getAge);
+        List<Person> filteredPeople = people // Source - Data at Rest
+                .stream().filter(person -> person.getFirstName().equalsIgnoreCase(searchName)
+                        || person.getLastName().equalsIgnoreCase(searchName))
+                .toList(); // Destination
 
-        OptionalDouble average = filteredPeople
-                .stream()
+        filteredPeople.forEach(System.out::println);
+
+        // Average
+        OptionalDouble average = people.stream()
                 .mapToDouble(Person::getAge)
                 .average();
 
-        // Average
-        if (!filteredPeople.isEmpty()) {
-            System.out.println("The oldest is: " + Collections.max(filteredPeople, byAge));
-            System.out.println("The youngest is: " + Collections.min(filteredPeople, byAge));
-            System.out.println("The average is: " + average);
+        double finalAverage = average.orElse(0.0);
 
+        // Output
+        Comparator<Person> byAge = Comparator.comparingInt(Person::getAge);
+        if (!filteredPeople.isEmpty()) {
+            System.out.println("\nThe oldest is: " + Collections.max(people, byAge));
+            System.out.println("The youngest is: " + Collections.min(people, byAge));
+            System.out.println("The average of all ages is: " + finalAverage);
         }
     }
+
+    /* Leaving this here for reference. Searching for lowest value in a list.
+    private static int findOldestAge(List<Person> people) {
+        int maxAge = Integer.MIN_VALUE;
+        for (Person person : people) {
+            if (person.getAge() > maxAge) {
+                maxAge = person.getAge();
+            }
+        }
+        return maxAge
+    }
+     */
 }
