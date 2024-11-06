@@ -22,11 +22,10 @@ public class Main {
         // Input
         System.out.print("Enter a name to search: ");
         String searchName = scanner.nextLine().trim();
-        System.out.println();
         scanner.close();
 
         // Filtering
-        System.out.println("People with matching name: ");
+        System.out.println("\nPeople with matching name: ");
 
         List<Person> filteredPeople = people // Source - Data at Rest
                 .stream().filter(person -> person.getFirstName().equalsIgnoreCase(searchName)
