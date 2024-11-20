@@ -22,7 +22,7 @@ SELECT MAX(UnitPrice)
 FROM products;
 
 -- Question 6
-SELECT SupplierID, COUNT(ProductID) AS ItemsSupplied
+SELECT SupplierID, COUNT(*) AS ItemsSupplied
 FROM  products
 GROUP BY SupplierID;
 
@@ -32,12 +32,12 @@ FROM products
 GROUP BY CategoryID;
 
 -- Question 8
-SELECT SupplierID, COUNT(ProductID) As ItemsSupplied
+SELECT SupplierID, COUNT(*) As ItemsSupplied
 FROM products
 GROUP BY SupplierID
-HAVING COUNT(ProductID) >= 5;
+HAVING ItemsSupplied >= 5;
 
 -- Question 9
-SELECT ProductID, ProductName, (UnitPrice * UnitsInStock) as InventoryValue
-FROM products
-ORDER BY InventoryValue DESC, ProductName;
+SELECT ProductID, ProductName, (UnitPrice * UnitsInStock) AS InventoryValue
+FROM Products
+ORDER BY InventoryValue DESC, ProductName ASC;
