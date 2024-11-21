@@ -1,9 +1,9 @@
 USE northwind;
 
 -- Q1.
-SELECT products.ProductID, products.ProductName, products.UnitPrice, categories.CategoryName
-FROM products
-JOIN categories ON products.CategoryID = categories.CategoryID
+SELECT p.ProductID, p.ProductName, p.UnitPrice, c.CategoryName
+FROM products p
+INNER JOIN categories c ON p.CategoryID = c.CategoryID
 ORDER BY CategoryName, ProductName;
 
 -- Q2. 
@@ -24,7 +24,7 @@ SELECT products.ProductID, products.ProductName, products.UnitPrice, categories.
 FROM products
 JOIN categories ON products.CategoryID = categories.CategoryID
 WHERE products.UnitPrice = (
-SELECT distinct Max(products.UnitPrice)
+SELECT Max(products.UnitPrice)
 FROM products
 )
 ORDER BY CategoryName, ProductName;
@@ -36,4 +36,8 @@ JOIN shippers ON orders.ShipVia = shippers.shipperID
 WHERE orders.ShipCountry = "Germany";
 
 -- Q6.
--- Do it later.
+SELECT o.OrderID, o.OrderDate, o.ShipName, o.ShipAddress
+FROM Orders o
+JOIN `order details` od ON o.OrderID = od.OrderID
+JOIN Products p  ON od.ProductID = p.ProductID
+WHERE p.ProductName = 'Sasquatch Ale';
