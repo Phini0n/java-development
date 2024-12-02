@@ -88,15 +88,15 @@ public class Main {
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
 
-            for (int i = 1; i <= columnCount; i ++) {
-                System.out.print(metaData.getColumnName(i) + " ");
-            }
-            System.out.println();
-
             if (!resultSet.isBeforeFirst() ) {
                 System.out.println("No data");
                 return;
             }
+
+            for (int i = 1; i <= columnCount; i ++) {
+                System.out.print(metaData.getColumnName(i) + " ");
+            }
+            System.out.println();
 
             while (resultSet.next()) {
                 for (int i = 1; i <= columnCount; i++) {
