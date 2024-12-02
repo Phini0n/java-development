@@ -28,8 +28,9 @@ public class Main {
             dataSource.setPassword(password);
 
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter the first and last name or last name of an actor you like: ");
+            System.out.print("Enter the first and last name or last name of an actor you like I'll display the movies they're in: ");
             String lastName = scanner.nextLine();
+
 
             boolean isValidName;
             do {
@@ -48,6 +49,8 @@ public class Main {
             case 1: // Last name
                 query = """
                                 SELECT * FROM sakila.actor
+                                JOIN sakila.film_actor ON sakila.actor.actor_id = sakila.film_actor.actor_id
+                                JOIN sakila.film ON film_actor.film_id = film.film_id
                                 WHERE actor.last_name = ?;
                                 """;
                 doQuery(dataSource, query, namesToSearch[0]);
@@ -55,8 +58,10 @@ public class Main {
             case 2: // First Name, Last Name
                 query = """
                                 SELECT * FROM sakila.actor 
-                                 WHERE CONCAT(actor.last_name,' ',actor.first_name) = ?
-                        """;
+                                JOIN sakila.film_actor ON sakila.actor.actor_id = sakila.film_actor.actor_id
+                                JOIN sakila.film ON film_actor.film_id = film.film_id
+                                WHERE CONCAT(actor.last_name,' ',actor.first_name) = ?
+                                """;
                 doQuery(dataSource, query, namesToSearch[1] + " " + namesToSearch[0]);
                 return true;
             default: // Neither
@@ -88,16 +93,17 @@ public class Main {
             }
             System.out.println();
 
+            if (!resultSet.isBeforeFirst() ) {
+                System.out.println("No data");
+                return;
+            }
+
             while (resultSet.next()) {
                 for (int i = 1; i <= columnCount; i++) {
                     System.out.print(resultSet.getString(i) + " ");
                 }
+                System.out.println();
             }
-
-            if (!resultSet.isBeforeFirst() ) {
-                System.out.println("No data");
-            }
-            System.out.println();
 
         } catch (Exception ex) {
             System.out.println("An error has occurred!");
