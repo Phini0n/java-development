@@ -37,5 +37,4 @@ public class CategoriesController {
         }
         return null;
     }
-
 }
